@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbfwa6yqy38fv"]
+
+[ext_resource type="Texture2D" uid="uid://pnxddnllir38" path="res://Assets/temp_bg.png" id="1_h3iqq"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_mqudv"]
+[ext_resource type="Texture2D" uid="uid://cxjk4koi0tyrc" path="res://Assets/temp_logo.png" id="2_756hn"]
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqudv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h3iqq")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+split_offset = 350
+
+[node name="menuContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="startButton" type="Button" parent="MarginContainer/HSplitContainer/menuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Start Game"
+alignment = 0
+
+[node name="optionsButton" type="Button" parent="MarginContainer/HSplitContainer/menuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Options
+"
+alignment = 0
+
+[node name="controlsButton" type="Button" parent="MarginContainer/HSplitContainer/menuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+alignment = 0
+
+[node name="exitButton" type="Button" parent="MarginContainer/HSplitContainer/menuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit Game"
+alignment = 0
+
+[node name="Control" type="Control" parent="MarginContainer/HSplitContainer/menuContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/menuContainer"]
+layout_mode = 2
+text = "Created by CastorBeaver"
+vertical_alignment = 1
+
+[node name="logoContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HSplitContainer/logoContainer"]
+layout_mode = 2
+texture = ExtResource("2_756hn")
+expand_mode = 1
+
+[connection signal="pressed" from="MarginContainer/HSplitContainer/menuContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/menuContainer/optionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/menuContainer/controlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/menuContainer/exitButton" to="." method="_on_exit_button_pressed"]
