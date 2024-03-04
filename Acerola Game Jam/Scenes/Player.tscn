@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://b34qdtt7c0rga"]
+[gd_scene load_steps=4 format=3 uid="uid://b34qdtt7c0rga"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://lbv7pc2chnnl" path="res://Assets/pixil-frame-0(1).png" id="1_crogf"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_hmiki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkrj2"]
+size = Vector2(128, 256)
+
+[node name="player" type="Area2D"]
+position = Vector2(517, 318)
+script = ExtResource("1_hmiki")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_crogf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dkrj2")
