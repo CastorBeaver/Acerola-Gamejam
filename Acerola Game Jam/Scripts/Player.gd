@@ -1,26 +1,23 @@
-extends Area2D
+extends CharacterBody2D
 
-signal hit
+var run_speed = 350
+var jump_speed = -1000
+var gravity = 2500
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+func get_input():
+	velocity.x = 0
+	var right = Input.is_action_pressed('ui_right')
+	var left = Input.is_action_pressed('ui_left')
+	var jump = Input.is_action_just_pressed('ui_up')
 
-func _ready():
-	screen_size = get_viewport_rect().size
+	if is_on_floor() and jump:
+		velocity.y = jump_speed
+	if right:
+		velocity.x += run_speed
+	if left:
+		velocity.x -= run_speed
 
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("jump"):
-		velocity.y -= 1
-	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+func _physics_process(delta):
+	velocity.y += gravity * delta
+	get_input()
+	move_and_collide(velocity * delta)
