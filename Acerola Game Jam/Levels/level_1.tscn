@@ -19,5 +19,6 @@ position = Vector2(1003, 476)
 [node name="player" parent="." instance=ExtResource("3_sbvya")]
 position = Vector2(105, 312)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_sbvya")]
+[node name="player2" parent="." instance=ExtResource("3_sbvya")]
 position = Vector2(605, 401)
+id = 2

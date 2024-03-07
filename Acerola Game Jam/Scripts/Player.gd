@@ -1,8 +1,17 @@
 extends CharacterBody2D
 
+@export var id = 1
+
 var run_speed = 350
 var jump_speed = -1000
 var gravity = 2500
+
+var color1 = Color(1,0,0,1)
+var color2 = Color(0,1,0,1)
+var color3 = Color(0,0,1,0)
+var color12 = Color(1,1,0,1)
+var color13 = Color(1,0,1,1)
+var color23 = Color(0,1,1,1)
 
 func get_input():
 	velocity.x = 0
@@ -20,4 +29,4 @@ func get_input():
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	get_input()
-	move_and_collide(velocity * delta)
+	move_and_slide()

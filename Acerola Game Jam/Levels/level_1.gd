@@ -1,10 +1,15 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
+# Called on scene creation
 func _ready():
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	for i in $player.get_slide_collision_count():
+		var collision = $player.get_slide_collision(i)
+		if collision.get_collider() == $player2:
+			print("player 2 collision")
+			$player2/ColorRect.color = $player2.color12
+		else:
+			continue
