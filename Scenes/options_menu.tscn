@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjdbotkrp6gqr"]
+
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_ud0lf"]
+
+[node name="options menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ud0lf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.5
+offset_top = -143.0
+offset_right = 333.5
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hey, thanks a bunch for playing
+
+tl;dr This is the first game I've ever made and had a lot of fun making it, however it's
+clear I have a lot to improve on and THANK YOU ACEROLA for hosting
+
+This game jam started at a pretty inconvenient time for me as it began the weekend
+before I started my 2nd year at university, studying computer science and
+mathematics, so I didn't get to spend as long on it as I'd hoped. Still I put all the effort I
+could afford into it and have a clearer idea of what my next steps as a game dev.
+Thank you again Acerola for hosting this game jam and finally giving me the
+motivation to make something :)"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 141.0
+offset_bottom = 111.0
+scale = Vector2(1.84, 1.84)
+text = "Back To Title Screen"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b34qdtt7c0rga"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_hmiki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpm02"]
+size = Vector2(32, 64)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hmiki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_tpm02")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -24.0
+offset_right = 32.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
